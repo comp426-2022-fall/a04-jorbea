@@ -24,7 +24,10 @@ function main() {
 	})
 
 	// 4. Endpoint for two six-sided dice
-
+	app.get("/app/roll/", (req, res) => {
+		res.send(roll(6, 2, 1));
+	})
+	
 	// 2. Assign default endpoint
 	app.get("*", (req, res) => {
 		res.status(404).send("404 NOT FOUND");
