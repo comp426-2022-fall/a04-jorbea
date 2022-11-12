@@ -17,6 +17,13 @@ function main() {
 
 	// Setup usage of express
 	app.use(express.urlencoded({extended: true}));
+	
+	// 3. Check endpoint; return 200 OK
+	app.get("/app", (req, res) => {
+		res.status(200).send("200 OK");
+	})
+
+	// 4. Endpoint for two six-sided dice
 
 	// 2. Assign default endpoint
 	app.get("*", (req, res) => {
