@@ -39,7 +39,14 @@ function main() {
 	// 6. Endpoint to accept /app/roll/:sides/
 	app.get("/app/roll/:sides/", (req, res) => {
 		const sides = parseInt(req.params.sides);
-		res.send(roll(side, 2, 1));
+		res.send(roll(sides, 2, 1));
+	})
+
+	// 7. Endpoint to accept /app/roll/:sides/:dice/
+	app.get("/app/roll/:sides/:dice/", (req, res) => {
+		const sides = parseInt(req.params.sides);
+		const dice = parseInt(req.params.sides);
+		res.send(roll(sides, dice, 1);
 	})
 
 	// 2. Assign default endpoint
