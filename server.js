@@ -30,18 +30,24 @@ function main() {
 
 	// 5. Endpoint to accept JSON/URLEncoded data body for sides/dice/rolls
 	app.post("/app/roll/", (req, res) => {
-		const sides = paseInt(req.body.sides);
+		const sides = parseInt(req.body.sides);
 		const dice = parseInt(req.body.dice);
 		const rolls = parseInt(req.body.rolls);
 		res.send(roll(sides, dice, rolls));
 	})
-	
+
+	// 6. Endpoint to accept /app/roll/:sides/
+	app.get("/app/roll/:sides/", (req, res) => {
+		const sides = parseInt(req.params.sides);
+		res.send(roll(side, 2, 1));
+	})
+
 	// 2. Assign default endpoint
 	app.get("*", (req, res) => {
 		res.status(404).send("404 NOT FOUND");
 	})
 
-	//app.listen(port);
+	app.listen(port);
 }
 
 main();
